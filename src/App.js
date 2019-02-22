@@ -2,20 +2,9 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import LoremIpsum from './Lorem-Ipsum.js'
+import HelloReact from './Hello-React.js'
 
-//split helloreact into seperate file like lorem-ipsum
 
-const HelloReact = () => {
-  return (
-    <section className="content">
-      <h1 className="title">Hello React!</h1>
-      <p>React makes it painless to create interactive UIs. Design simple views
-      for each state in your application, and React will efficiently update and
-      render just the right components when your data changes.</p>
-      <p>Declarative views make your code more predictable and easier to debug.</p>
-    </section>
-  )
-}
 
 const LoginForm = () => {
   return (
@@ -37,7 +26,7 @@ class App extends Component {
   }
   render() {
     const contents = {
-      'hello-react': HelloReact,
+      'hello-react': <HelloReact />,
       'lorem-ipsum': <LoremIpsum />,
       'login-form': LoginForm,
     }
