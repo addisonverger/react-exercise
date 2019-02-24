@@ -3,32 +3,33 @@ import React, { Component } from 'react';
 import './App.css';
 import LoremIpsum from './Lorem-Ipsum.js'
 import HelloReact from './Hello-React.js'
+import LoginForm from './Login-Form.js'
 
-
-
-const LoginForm = () => {
-  return (
-    <div>LoginForm</div>
-  )
-}
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentTab: 'hello-react'
+      currentTab: 'hello-react',
+      isActive: 0
     }
   }
   openTab = (currentTab) => {
+    const contents = {
+      'hello-react': 0,
+      'lorem-ipsum': 1,
+      'login-form': 2
+    }
     this.setState({
-      currentTab: currentTab
+      currentTab: currentTab,
+      isActive: contents[currentTab]
     })
   }
   render() {
     const contents = {
       'hello-react': <HelloReact />,
       'lorem-ipsum': <LoremIpsum />,
-      'login-form': LoginForm,
+      'login-form': <LoginForm />
     }
 
     return (
@@ -36,13 +37,13 @@ class App extends Component {
         <div className="container">
           <div className="tabs is-boxed is medium">
             <ul>
-              <li className="is-active">
+              <li className={this.state.isActive === 0 ? 'is-active' : ''}>
                 <a onClick={() => this.openTab('hello-react')}>Hello React</a>
               </li>
-              <li>
+              <li className={this.state.isActive === 1 ? 'is-active' : ''}>
                 <a onClick={() => this.openTab('lorem-ipsum')}>Lorem Ipsum</a>
               </li>
-              <li>
+              <li className={this.state.isActive === 2 ? 'is-active' : ''}>
                 <a onClick={() => this.openTab('login-form')}>Login Form</a>
               </li>
             </ul>
