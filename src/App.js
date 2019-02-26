@@ -4,6 +4,7 @@ import './App.css';
 import LoremIpsum from './Lorem-Ipsum.js'
 import HelloReact from './Hello-React.js'
 import LoginForm from './Login-Form.js'
+import FunPeople from './Fun-People.js'
 
 
 class App extends Component {
@@ -18,7 +19,8 @@ class App extends Component {
     const contents = {
       'hello-react': 0,
       'lorem-ipsum': 1,
-      'login-form': 2
+      'login-form': 2,
+      'fun-people': 3
     }
     this.setState({
       currentTab: currentTab,
@@ -29,13 +31,14 @@ class App extends Component {
     const contents = {
       'hello-react': <HelloReact />,
       'lorem-ipsum': <LoremIpsum />,
-      'login-form': <LoginForm />
+      'login-form': <LoginForm />,
+      'fun-people': <FunPeople />
     }
 
     return (
       <section className="section">
         <div className="container">
-          <div className="tabs is-boxed is medium">
+          <div className="tabs is-boxed is-medium">
             <ul>
               <li className={this.state.isActive === 0 ? 'is-active' : ''}>
                 <a onClick={() => this.openTab('hello-react')}>Hello React</a>
@@ -45,6 +48,9 @@ class App extends Component {
               </li>
               <li className={this.state.isActive === 2 ? 'is-active' : ''}>
                 <a onClick={() => this.openTab('login-form')}>Login Form</a>
+              </li>
+              <li className={this.state.isActive === 3 ? 'is-active' : ''}>
+                <a onClick={() => this.openTab('fun-people')}>Fun People</a>
               </li>
             </ul>
           </div>
