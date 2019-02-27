@@ -23,7 +23,6 @@ class FunPeople extends Component {
     this.state = {
       name: '',
       reason: '',
-      isDisabled: true,
       funArray: [{
         name: 'Bill',
         reason: 'he likes to party'
@@ -45,13 +44,6 @@ class FunPeople extends Component {
     this.setState({
       reason: event.target.value
     })
-  }
-  isDisabled() {
-    if(this.state.name && this.state.reason) {
-      this.setState({
-        isDisabled: false
-      })
-    }
   }
   addFunPerson(event) {
     event.preventDefault()
@@ -107,7 +99,7 @@ class FunPeople extends Component {
             <div className="field">
               <input type="submit"
                       className="button is-link is-medium"
-                      // disabled={this.state.isDisabled ? true : false}
+                      disabled={!(this.state.name && this.state.reason) ? 'disabled' : null}
                       value="Add Fun Person" />
             </div>
           </form>
